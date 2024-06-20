@@ -21,7 +21,7 @@ const Poll = ({ polls, setPolls }) => {
 
     return (
         <div>
-            <Button variant="primary" onClick={() => setShowModal(true)}>
+            <Button variant="primary" style={{ marginBottom: "20px" }} onClick={() => setShowModal(true)}>
                 Add Poll
             </Button>
             <AddPollModal
