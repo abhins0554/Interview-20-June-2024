@@ -3,16 +3,16 @@ const routers = require('express').Router();
 
 const PollController = require("./poll.controller")
 
-class AuthRouter {
+class PollRouter {
     constructor() {
         this.myRoutes = routers;
         this.core();
     }
 
     core() {
-        this.myRoutes.use('/create-poll', PollController.createPoll);
-        this.myRoutes.use('/get-poll', PollController.getPoll);
-        this.myRoutes.use('/vote-poll', PollController.votePoll);
+        this.myRoutes.post('/create-poll', PollController.createPoll);
+        this.myRoutes.get('/get-poll', PollController.getPoll);
+        this.myRoutes.post('/vote-poll', PollController.votePoll);
     }
 
     getRouters() {
@@ -20,4 +20,4 @@ class AuthRouter {
     }
 }
 
-module.exports = AuthRouter;
+module.exports = PollRouter;

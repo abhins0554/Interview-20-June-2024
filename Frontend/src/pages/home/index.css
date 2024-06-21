@@ -1,0 +1,60 @@
+.home-container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.leftside,
+.rightside {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.leftside-container,
+.rightside-container {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.header {
+  padding: 10px;
+  background-color: #f0f2f5;
+}
+
+.footer {
+  padding: 10px;
+  background-color: #f0f2f5;
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  display: flex;
+  width: 100%;
+}
+
+.message input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.container,
+.container-darker {
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.container-darker {
+  background-color: #f0f0f0;
+}
+
+.right {
+  float: right;
+}
+
+.time-right,
+.time-left {
+  display: block;
+  color: #999;
+  font-size: 12px;
+}

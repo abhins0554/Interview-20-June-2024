@@ -12,6 +12,9 @@ const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
 const morgan = require('morgan')
+const swaggerUi = require('swagger-ui-express');
+
+const swaggerFile = require('./source/utils/swagger/swagger-path')
 
 /* Main Router Import */
 const Router = require("./source/routes/router");
@@ -19,7 +22,7 @@ const Router = require("./source/routes/router");
 /* Database connection import */
 const MongoDB = require("./source/databases/mongo.db");
 const errorHandler = require("./source/utils/helper/errorHandler");
-const SocketMain = require("./source/socket/socket.main");
+const { SocketMain, getIoInstance } = require("./source/socket/socket.main");
 
 class Main {
     constructor() {
@@ -38,7 +41,7 @@ class Main {
         this.app.use(compression());
         this.app.use(cors());
         this.app.use(express.static(path.join(__dirname, './public/')));
-        this.app.use(morgan('combined'))
+        this.app.use(morgan('dev'))
 
         /* Added custom database health check middleware */
         this.app.use((req, res, next) => {
@@ -47,6 +50,8 @@ class Main {
                 message: "Database is not connected!"
             });
         });
+
+        this.app.use('/api/documentation', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
         /* Adding routes */
         this.app.use("/", new Router().getRouters());

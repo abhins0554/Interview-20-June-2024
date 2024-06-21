@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "../App.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 // Lazy load components
 const Login = lazy(() => import("../pages/login/login"));
@@ -20,6 +20,7 @@ const App = () => {
                     <Route path="/" element={<Login />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/signup" element={<Signup />}></Route>
+
                     <Route path="/home" element={<Home />}></Route>
                     {/* <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route> */}

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: `http://localhost:5001`,
+    baseURL: ``,
 });
 
 // Function to make authorized requests

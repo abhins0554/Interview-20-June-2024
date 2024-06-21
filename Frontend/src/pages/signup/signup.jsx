@@ -13,7 +13,7 @@ function Signup(props) {
 
     React.useEffect(() => {
         if (localStorage.getItem('userData')) return navigate('/home');
-    }, []);
+    });
 
     let [userData, setUserData] = React.useState({
         email: "",
@@ -27,7 +27,8 @@ function Signup(props) {
         try {
             let { data } = await SignupAPI(userData);
             if (data.code === 200) {
-                return document.getElementById('error').innerText = data.message;
+                document.getElementById('error').innerText = data.message;
+                return navigate('/home');
             }
         } catch (error) {
             if (error?.response?.data?.message) return document.getElementById('error').innerText = error?.response?.data?.message;

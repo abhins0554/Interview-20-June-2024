@@ -12,7 +12,7 @@ function Login(props) {
 
   React.useEffect(() => {
     if (localStorage.getItem('userData')) return navigate('/home');
-  }, []);
+  });
 
   let [userData, setUserData] = React.useState({
     email: "",
